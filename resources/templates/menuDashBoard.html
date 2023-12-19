@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>MenuDashboard</title>
+
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            h1 {
+                color: #333;
+                text-align: center;
+                padding: 20px;
+                background-color: #4caf50;
+                color: #fff;
+                border-radius: 8px;
+            }
+
+            table {
+                width: 80%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #4caf50;
+                color: #fff;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            .action-button {
+                text-align: center;
+            }
+
+            .edit-button, .delete-button {
+                display: inline-block;
+                padding: 5px 10px;
+                margin: 5px;
+                text-decoration: none;
+                background-color: #333;
+                color: #fff;
+                border-radius: 4px;
+            }
+
+            .edit-button:hover, .delete-button:hover {
+                background-color: #555;
+            }
+        </style>
+
+</head>
+<body>
+        <form th:action="@{/menuDashBoard}" method="get">
+        <input id="textSearch" type="text" name="keyboard">
+            <button type="submit">GO</button>
+        </form>
+
+      <h1>Menu Table</h1>
+<table>
+
+          <tr>
+          <th>Item_Id</th>
+          <th>Item_Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Restaurant</th>
+              <th>Perform Action</th>
+        </tr>
+  <tr  th:each="men: ${ListMenu}">
+    <td th:text="${men.itemId}"></td>
+    <td th:text="${men.itemName}"></td>
+    <td th:text="${men.description}"></td>
+    <td th:text="${men.price}"></td>
+    <td th:text="${men.restaurant.restoName}"></td>
+
+      <td class="action-button">
+          <a th:href="@{/updateMenu/{itemId}(itemId=${men.itemId})}" class="edit-button">Edit</a>
+          <a th:href="@{/deleteMenu/{itemId}(itemId=${men.itemId})}" class="delete-button">Delete</a>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

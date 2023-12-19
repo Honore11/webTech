@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>user</title>
+  <title>user</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin: 0;
+      color: #312f2f;
+    }
+
+    header {
+      background-color: #ffffff;
+      color: #fff;
+      padding: 10px;
+    }
+
+    nav ul li:first-child {
+      margin-right: auto;
+      margin-left: 10px;
+    }
+
+    nav ul li:first-child a {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li:first-child a:hover {
+      background-color: #ffffff;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Reference to the form element
+      var form = document.querySelector('form');
+
+      // Event listener for form submission
+      form.addEventListener('submit', function (event) {
+        // Validate each field
+        var username = document.getElementById('userame').value;
+        var password = document.getElementById('pass').value;
+        var email = document.getElementById('em').value;
+        var phoneNumber = document.getElementById('phone').value;
+        var address = document.getElementById('addre').value;
+
+        if (username === '' || password === '' || email === '' || phoneNumber === '' || address === '') {
+          // If any field is empty, prevent form submission and show an alert
+          event.preventDefault();
+          alert('Please fill in all fields.');
+        }
+      });
+    });
+  </script>
+
+</head>
+<body>
+<h1>Sign Up</h1>
+<div class="form-container">
+  <form  th:action="@{saveUser}" th:object="${use}" method="post">
+    <div class="form-group">
+      <label for="userame">User_Name:</label>
+      <input type="text" id="userame" th:field="*{clientname}">
+    </div>
+    <div class="form-group">
+      <label for="pass">Password:</label>
+      <input type="password" id="pass" th:field="*{password}">
+    </div>
+    <div class="form-group">
+      <label for="em">E-mail:</label>
+      <input type="email" id="em" th:field="*{mail}">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone_Number:</label>
+      <input type="text" id="phone" th:field="*{phone_number}">
+    </div>
+    <div class="form-group">
+      <label for="addre">Address:</label>
+      <input type="text" id="addre" th:field="*{addresses}">
+    </div>
+    <input type="submit" value="submit" class="btn-submit">
+
+  </form>
+</div>
+
+</body>
+</html>

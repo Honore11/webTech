@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .action-button a {
+            display: inline-block;
+            margin-right: 5px;
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        .edit-button {
+            background-color: #008CBA;
+        }
+
+        .delete-button {
+            background-color: #f44336;
+        }
+    </style>
+
+</head>
+<body>
+
+
+      <table>
+          <tr>
+              <th>Delivery_Id</th>
+              <th>Order_Id</th>
+              <th>Delivery_Date</th>
+              <th>Delivery_Address</th>
+              <th>Status</th>
+              <th>Perform Action</th>
+          </tr>
+          <tr  th:each="delivery: ${ListDeliveries}">
+              <td th:text="${delivery.deliveryId}"></td>
+              <td th:text="${delivery.orders.order_Id}"></td>
+              <td th:text="${delivery.deliveryDate}"></td>
+              <td th:text="${delivery.deliveryAddress}"></td>
+              <td th:text="${delivery.edelivery}"></td>
+
+              <td class="action-button">
+                  <a th:href="@{/updateDelivery/{deliveryId}(deliveryId=${delivery.deliveryId})}" class="edit-button">Edit</a>
+                  <a th:href="@{/deleteDelivery/{deliveryId}(deliveryId=${delivery.deliveryId})}" class="delete-button">Delete</a>
+              </td>
+          </tr>
+
+      </table>
+</body>
+</html>

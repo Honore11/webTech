@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>warning</title>
+    <style>
+        .warning {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function verifyUser() {
+            var question1 = prompt("Question 1: Enter your favorite color:");
+            var question2 = prompt("Question 2: Enter the name of your first pet:");
+            var question3 = prompt("Question 3: Enter the year of your birth:");
+
+            // Verification logic
+            if (
+                question1 === "laugh" &&
+                question2 === "never" &&
+                question3 === "0912"
+            ) {
+                alert("Verification successful! Redirecting to login as admin");
+                window.location.href = "choiceLogin.html";
+            } else {
+                alert("Verification failed. Please try again.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+<form onsubmit="event.preventDefault(); verifyUser();">
+    <label for="adminCheckbox">Enter as Admin:</label>
+    <input type="checkbox" id="adminCheckbox" name="adminCheckbox" required>
+    <span class="warning">You are going to enter as an admin. Make sure you are allowed to do so.</span>
+    <br>
+    <button type="submit">Submit</button>
+    <button type="button" onclick="window.location.href = 'Home.html';">Back</button>
+</form>
+</body>
+
+</html>

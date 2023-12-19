@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Food Ordering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        nav ul li:first-child {
+            margin-right: auto;
+            margin-left: 10px;
+        }
+
+        nav ul li:first-child a {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li:first-child a:hover {
+            background-color: #555;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <!-- Your website header goes here -->
+    <h1>Food Ordering</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/showHome}">Home</a></li>
+            <li><a  th:href="@{/aboutUs}">About Us</a></li>
+            <li><a th:href="@{/menu}">Menu</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/showNewUserForm}">Signup</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to Food Ordering, your one-stop destination for delicious and convenient food delivery. We are passionate about providing you with the best dining experience right at your doorstep.</p>
+
+        <p>At Food Ordering, we believe that good food brings people together. That's why we carefully curate a diverse menu featuring a wide range of cuisines and flavors to cater to every palate. Our team of talented chefs and food enthusiasts work tirelessly to create mouthwatering dishes made from the freshest ingredients.</p>
+
+        <p>Whether you're craving a hearty burger, a comforting bowl of pasta, or a refreshing salad, we've got you covered. With our simple online ordering system, you can browse our menu, customize your order, and have it delivered straight to your home or office in no time.</p>
+
+        <p>We prioritize customer satisfaction and strive to provide exceptional service. Our friendly and dedicated support team is always ready to assist you with any questions or concerns you may have. We value your feedback and continuously work on improving our offerings to ensure that you have an outstanding dining experience every time you order from us.</p>
+
+        <p>Thank you for choosing Food Ordering. We look forward to serving you delicious meals and making your dining experience memorable.</p>
+    </section>
+</main>
+
+<footer>
+    <ul>
+        <li><a href="">&copy; 2023 Food Ordering. All rights reserved.</a></li>
+        <li><a th:href="@{/privacy}">|Terms of Service</a></li>
+        <li><a th:href="@{/privacy}">|Privacy Policy</a></li>
+        <li><a th:href="@{/contact}">|Contact Us</a></li>
+    </ul>
+</footer>
+</body>
+</html>

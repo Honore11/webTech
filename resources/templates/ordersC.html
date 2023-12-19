@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Complete Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="client-details">
+<h1>Complete Orders</h1>
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Order Name</th>
+        <th>Client</th>
+        <th>Order Date</th>
+        <th>Amount</th>
+        <th>Select Items</th>
+    </tr>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.order_Id}"></td>
+        <td th:text="${order.orderName}"></td>
+        <td th:text="${order.client.clientname}"></td>
+        <td th:text="${order.orderDate}"></td>
+        <td th:text="${order.amount}"></td>
+        <td class="action-button">
+        <td><button onclick="selectOrderItems()">Select Order Items</button></td>
+        </td>
+    </tr>
+</table>
+</div>
+<div class="client-details">
+<h1>Pending Orders</h1>
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Order Name</th>
+        <th>Client</th>
+        <th>Order Date</th>
+        <th>Amount</th>
+    </tr>
+    <tr th:each="order : ${ordersP}">
+        <td th:text="${order.order_Id}"></td>
+        <td th:text="${order.orderName}"></td>
+        <td th:text="${order.client.clientname}"></td>
+        <td th:text="${order.orderDate}"></td>
+        <td th:text="${order.amount}"></td>
+    </tr>
+</table>
+</div>
+    <div class="client-details">
+<h1>Rejected Orders</h1>
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Order Name</th>
+        <th>Client</th>
+        <th>Order Date</th>
+        <th>Amount</th>
+    </tr>
+    <tr th:each="order : ${ordersR}">
+        <td th:text="${order.order_Id}"></td>
+        <td th:text="${order.orderName}"></td>
+        <td th:text="${order.client.clientname}"></td>
+        <td th:text="${order.orderDate}"></td>
+        <td th:text="${order.amount}"></td>
+    </tr>
+</table>
+    </div>
+
+</body>>
+</html>

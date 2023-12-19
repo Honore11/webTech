@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+  <title>Client Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .client-details {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .client-details p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>Client Information</h1>
+<div class="client-details">
+
+  <p>Your Id: <span th:text="${clientInfo.clientId}"></span></p>
+  <p>User Name: <span th:text="${clientName}"></span></p>
+  <p>E-mail: <span th:text="${clientInfo.mail}"></span></p>
+  <p>Phone Number: <span th:text="${clientInfo.phone_number}"></span></p>
+  <p>Address: <span th:text="${clientInfo.addresses}"></span></p>
+  <a th:href="@{/clientInformationUpdate}" class="edit-profile-button">Edit Profile</a>
+
+</div>
+</body>
+</html>

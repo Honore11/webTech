@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>updateRestaurant</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 5px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+</head>
+<body>
+   <h1>Update Restaurant </h1>
+<form action="/saveRestaurant" method="post" th:object="${restaurant}">
+
+  <input type="hidden" id="" th:field="*{restoId}">
+  <div class="form-group">
+    <label for="name">Restaurant_Name:</label>
+    <input type="text" id="name" th:field="*{restoName}">
+  </div>
+
+  <div class="form-group">
+    <label for="adde">Address:</label>
+    <input type="text" id="adde" th:field="*{retoAddress}">
+  </div>
+  <div class="form-group">
+    <label for="mail">E-mail:</label>
+    <input type="email" id="mail" th:field="*{email}">
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone_Number:</label>
+    <input type="text" id="phone" th:field="*{phone}">
+  </div>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

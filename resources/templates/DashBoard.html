@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Management Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('../static/img/photo/piza.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(242, 242, 242, 0.8); /* Added a semi-transparent background color */
+      padding: 20px;
+    }
+
+    .section {
+      text-align: center;
+    }
+
+    .item {
+      padding: 10px;
+      margin: 10px;
+      background-color: #3498db;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none; /* Remove the underline from links */
+      display: inline-block;
+    }
+
+    .item:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="row">
+  <div class="section">
+    <h2>Management</h2>
+    <a th:href="@{/showNewUserAdForm}" class="item">User</a>
+    <a th:href="@{/showNewOrders}" class="item">Order Modification</a>
+    <a th:href="@{/showNewOrderItem}" class="item">Order Items </a>
+    <a th:href="@{/showNewMenuForm}" class="item">Menu</a>
+    <a th:href="@{/showNewRestaurant}" class="item">Restaurant</a>
+    <a th:href="@{/showNewPaymentForm}" class="item">Payment</a>
+    <a th:href="@{/showNewDeliveryForm}" class="item">Delivery</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="section">
+    <h2>Tables</h2>
+    <a th:href="@{/userDashBoard}" class="item">user Table</a>
+    <a th:href="@{/orderDashBoard}" class="item">Orders List</a>
+    <a th:href="@{/orderItemDashBoard}" class="item">Order Item List</a>
+    <a th:href="@{/menuDashBoard}" class="item">Menu List</a>
+    <a th:href="@{/paymentDashBoard}" class="item">Payment List</a>
+    <a th:href="@{/restaurantDashBoard}" class="item">Restaurant List</a>
+    <a th:href="@{/deliveryDashBoard}" class="item">Delivery</a>
+  </div>
+</div>
+
+</body>
+</html>

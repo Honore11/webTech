@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Information Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .client-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-details p {
+            margin-bottom: 10px;
+        }
+
+        .update-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .update-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Update Your Information</h1>
+<div class="client-details">
+    <form th:action="@{/saveClientInfo}" th:object="${clientInfo1}" method="post">
+        <input type="hidden" th:field="*{clientId}" />
+        <p>User Name: <input type="text" th:field="${clientInfo1.clientname}" required /></p>
+<!--        <p>Old Password: <input type="password" th:field="${clientInfo1.password}" required /></p>-->
+        <p>New Password: <input type="password" th:field="${clientInfo1.password}" required /></p>
+        <p>E-mail: <input type="text" th:field="*{mail}" required /></p>
+        <p>Phone Number: <input type="text" th:field="*{phone_number}" required /></p>
+        <p>Address: <input type="text" th:field="*{addresses}" required /></p>
+        <button type="submit" class="update-button">Update</button>
+    </form>
+</div>
+</body>
+</html>

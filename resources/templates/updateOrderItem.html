@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>UpdateOrderItem</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            h1 {
+                color: #333;
+                text-align: center;
+            }
+
+            form {
+                max-width: 400px;
+                margin: 20px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-top: 5px;
+            }
+
+            input[type="submit"] {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                display: block;
+                margin: 0 auto;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
+</head>
+<body>
+<h1>Update Order Item</h1>
+<form action="/saveOrderItem" method="post" th:object="${orderItem}">
+
+    <input type="hidden" id="" th:field="*{orderitemId}">
+    <div class="form-group">
+        <label for="order">Order_Id</label>
+
+        <select id="order" th:field="*{orders}">
+
+            <option th:each="std:${orderList}" th:value="${std.order_Id}" th:text="${std.order_Id}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="menu">Item_id:</label>
+
+        <select id="menu" th:field="*{menu}">
+
+            <option th:each="st:${menList}" th:value="${st.itemId}" th:text="${st.itemId}"></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="qual">Quality:</label>
+        <input type="text" id="qual" th:field="*{quality}">
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" th:field="*{subtotal}">
+    </div>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

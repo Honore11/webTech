@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>updateOrder</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            h1 {
+                color: #333;
+                text-align: center;
+            }
+
+            form {
+                max-width: 400px;
+                margin: 20px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-top: 5px;
+            }
+
+            input[type="submit"] {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                display: block;
+                margin: 0 auto;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
+
+</head>
+<body>
+<h1>Update Order</h1>
+<form action="/saveOrders" method="post" th:object="${orderss}">
+
+    <input type="hidden" id="" th:field="*{order_Id}">
+    <div class="form-group">
+        <label for="name">Order_Name:</label>
+        <input type="text" id="name" th:field="*{orderName}">
+    </div>
+
+    <div class="form-group">
+        <label for="usr">User_Id</label>
+
+        <select id="usr" th:field="*{client}">
+
+            <option th:each="std:${LiClientList}" th:value="${std.clientId}" th:text="${std.clientId}"></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="odate">Order_Date:</label>
+        <input type="date" id="odate" th:field="*{orderDate}">
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" th:field="*{amount}">
+    </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" th:field="*{estatus}">
+            <option value="Pending">Pending</option>
+            <option value="Complete">Complete</option>
+            <option value="Failed">Failed</option>
+        </select>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

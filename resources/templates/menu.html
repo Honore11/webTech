@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+
+    <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                color: #333;
+            }
+
+            form {
+                max-width: 400px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-top: 5px;
+            }
+
+            .btn-submit {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .btn-submit:hover {
+                background-color: #45a049;
+            }
+        </style>
+
+</head>
+<body>
+    <h1>Add New Menu</h1>
+<form th:action="@{saveMenu}" th:object="${menu}" method="post">
+    <div class="form-group">
+        <label for="name">Item_Name:</label>
+        <input type="text" id="name" th:field="*{itemName}" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" th:field="*{description}" required>
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" id="price" th:field="*{price}" required>
+    </div>
+    <div class="form-group">
+        <label for="resto">RestaurantId:</label>
+        <select id="resto" th:field="*{restaurant}" required>
+            <option th:each="resta:${restaurantList}" th:value="${resta.restoId}" th:text="${resta.restoId+'-'+resta.restoName}" ></option>
+        </select>
+    </div>
+        <input type="submit" value="Save" class="btn-submit">
+</form>
+</body>
+</html>

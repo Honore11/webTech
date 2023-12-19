@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Save User</title>
+</head>
+<body>
+<h1>Save User</h1>
+<form action="/saveUser" method="post" enctype="multipart/form-data">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="use.name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="use.email" required><br><br>
+
+    <label for="imageFile">Profile Picture:</label>
+    <input type="file" id="imageFile" name="imageFile"><br><br>
+
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>
